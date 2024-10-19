@@ -10,9 +10,9 @@
 
     <b-col lg="6" class="col-lg-6 order-1">
       <div class="p-4 p-sm-7">
-        <router-link :to="{ name: 'hotels.home' }">
+        <!-- <router-link :to="{ name: '' }">
           <img class="h-50px mb-4" :src="logo" alt="logo" />
-        </router-link>
+        </router-link> -->
 
         <h1 class="mb-2 h3">Two factor authentication</h1>
         <p class="mb-sm-0">We have to send a code to <b>example@gmail.com</b></p>

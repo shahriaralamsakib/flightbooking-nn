@@ -56,28 +56,28 @@ const popularHotels: HotelType[] = [
     address: '31J W Spark Street, California - 24578',
     image: hotel10,
     price: 1586,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Courtyard by Marriott New York',
     address: '258 W jimmy Street, New york - 24578',
     image: hotel8,
     price: 1025,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Park Plaza Lodge Hotel',
     address: '31J W Spark Street, California - 24578',
     image: hotel9,
     price: 958,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Royal Beach Resort',
     address: '589 J Wall Street, London - 24578',
     image: hotel7,
     price: 1005,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   }
 ]
 

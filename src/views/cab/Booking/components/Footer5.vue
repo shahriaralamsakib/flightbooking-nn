@@ -4,9 +4,9 @@
       <b-row class="align-items-center">
         <b-col md="4">
           <div class="text-center text-md-start mb-3 mb-md-0">
-            <router-link :to="{ name: 'hotels.home' }"
+            <!-- <router-link :to="{ name: '' }"
               ><img class="h-30px" :src="logoLight" alt="logo"
-            /></router-link>
+            /></router-link> -->
           </div>
         </b-col>
 

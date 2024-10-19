@@ -495,13 +495,13 @@ const getAirportDataByIataCode = (iataCode: string) => {
 
 // Retrieve City Name by IATA Code
 const getCityName = (iataCode: string) => {
-  const airport = getAirportDataByIataCode(iataCode)
+  const airport = getAirportDataByIataCode(iataCode) as { city: string };
   return airport.city || 'Unknown City'
 }
 
 // Retrieve Country Name by IATA Code
 const getCountryName = (iataCode: string) => {
-  const airport = getAirportDataByIataCode(iataCode)
+  const airport = getAirportDataByIataCode(iataCode) as { country: string };
   return airport.country || 'Unknown Country'
 }
 

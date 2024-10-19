@@ -252,24 +252,19 @@ const getAirportDataByIataCode = (iataCode: string) => {
 }
 
 // Retrieve City Name by IATA Code
-const getCityName = (iataCode: string) => {
-  const airport = getAirportDataByIataCode(iataCode)
-  return airport.city || 'Unknown City'
-}
+const getCityName = (iataCode: string): string => {
+  const airport = getAirportDataByIataCode(iataCode) as { city: string };
+  return airport.city || 'Unknown City';
+};
 
 // Retrieve Country Name by IATA Code
 const getCountryName = (iataCode: string) => {
-  const airport = getAirportDataByIataCode(iataCode)
+  const airport = getAirportDataByIataCode(iataCode) as { country: string };
   return airport.country || 'Unknown Country'
 }
 
-// Other existing helper functions
-const getAirlineLogo = (carrierCode: string) => {
-  return `https://path/to/logos/${carrierCode}.png`
-}
-
 const getAirportName = (iataCode: string) => {
-  const airport = getAirportDataByIataCode(iataCode)
+  const airport = getAirportDataByIataCode(iataCode) as { name: string };
   return airport.name || iataCode
 }
 
@@ -318,20 +313,36 @@ const formatDate = (dateTime: string) => {
   return date.toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
 };
 
-const formatDuration = (isoDuration: string) => {
+const formatDuration = (isoDuration: string): string => {
   // Example ISO duration: "PT2H30M"
   const match = isoDuration.match(/PT(\d+H)?(\d+M)?/);
+
+  if (!match) {
+    // Handle case where there is no match (optional: return a default value)
+    return 'Invalid duration';
+  }
+
   const hours = match[1] ? match[1].replace('H', 'hr ') : '';
   const minutes = match[2] ? match[2].replace('M', 'min') : '';
   return `${hours}${minutes}`;
 };
 
-const calculateLayover = (currentSegment, nextSegment) => {
+
+interface Segment {
+  arrival: {
+    at: string;  // Assuming this is a string representing a date
+  };
+  departure: {
+    at: string;
+  };
+}
+
+const calculateLayover = (currentSegment: Segment, nextSegment: Segment): string => {
   const arrivalTime = new Date(currentSegment.arrival.at);
   const departureTime = new Date(nextSegment.departure.at);
   
   // Calculate the difference in milliseconds
-  const layoverDuration = departureTime - arrivalTime;
+  const layoverDuration = departureTime.getTime() - arrivalTime.getTime();
   
   // Convert the duration to hours and minutes
   const hours = Math.floor(layoverDuration / (1000 * 60 * 60));
@@ -339,5 +350,4 @@ const calculateLayover = (currentSegment, nextSegment) => {
   
   return `${hours}h ${minutes}m`;
 };
-
 </script>

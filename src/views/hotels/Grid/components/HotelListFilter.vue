@@ -19,21 +19,21 @@
 
             <ul class="nav nav-pills nav-pills-dark" id="tour-pills-tab" role="tablist">
               <li class="nav-item">
-                <router-link
+                <!-- <router-link
                   class="nav-link rounded-start rounded-0 mb-0"
                   :to="{ name: 'hotels.list' }"
                 >
                   <BIconListUl class="fa-fw mb-1" />
-                </router-link>
+                </router-link> -->
               </li>
 
               <li class="nav-item">
-                <router-link
+                <!-- <router-link
                   class="nav-link rounded-end rounded-0 mb-0 active"
                   :to="{ name: 'hotels.grid' }"
                 >
                   <BIconGridFill class="fa-fw mb-1" />
-                </router-link>
+                </router-link> -->
               </li>
             </ul>
           </div>

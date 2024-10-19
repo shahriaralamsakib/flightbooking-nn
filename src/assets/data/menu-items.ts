@@ -23,13 +23,13 @@ export const bookingHomeMenuItems: MenuItemType[] = [
   // {
   //   key: 'hotels-home',
   //   label: 'Hotel',
-  //   link: { name: 'hotels.home' },
+  //   link: { name: '' },
   //   icon: BIconBuildingFill
   // },
   // {
   //   key: 'flights-home',
   //   label: 'Flight',
-  //   link: { name: 'flights.home' },
+  //   link: { name: 'flights.home' },sig
   //   icon: BIconAirplaneFill
   // },
   // {
@@ -57,7 +57,7 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'acc-user-bookings',
     label: 'My Bookings',
-    link: { name: 'user.bookings' },
+    link: { name: '' },
     parentKey: 'acc-user',
     icon: BIconTicketPerforated
   },
@@ -78,14 +78,14 @@ export const USER_PROFILE_MENU_ITEMS: MenuItemType[] = [
   {
     key: 'acc-user-wishlist',
     label: 'Wishlist',
-    link: { name: 'user.wishlist' },
+    link: { name: '' },
     parentKey: 'acc-user',
     icon: BIconHeart
   },
   {
     key: 'acc-user-settings',
     label: 'Settings',
-    link: { name: 'user.settings' },
+    link: { name: '' },
     parentKey: 'acc-user',
     icon: BIconGear
   },
@@ -272,7 +272,7 @@ export const HELP_MENU_ITEMS: MenuItemType[] = [
       {
         key: 'helps-center-page',
         label: 'Help Center',
-        link: { name: 'pages.help.center' },
+        link: { name: '' },
         parentKey: 'help-center'
       },
       {
@@ -311,7 +311,7 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
           // {
           //   key: 'hotel-home',
           //   label: 'Hotel Home',
-          //   link: { name: 'hotels.home' },
+          //   link: { name: '' },
           //   parentKey: 'hotels'
           // },
           // {
@@ -341,7 +341,7 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
           // {
           //   key: 'hotel-detail',
           //   label: 'Hotel Detail',
-          //   link: { name: 'hotels.details' },
+          //   link: { name: '' },
           //   parentKey: 'hotels'
           // },
           // {
@@ -640,7 +640,7 @@ export const APP_MENU_ITEMS: MenuItemType[] = [
   //         {
   //           key: 'helps-center',
   //           label: 'Help Center',
-  //           link: { name: 'pages.help.center' },
+  //           link: { name: '' },
   //           parentKey: 'helps'
   //         },
   //         {

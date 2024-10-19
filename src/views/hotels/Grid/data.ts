@@ -19,7 +19,7 @@ export const hotels: HotelType[] = [
     rating: 4.5,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 750,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const hotels: HotelType[] = [
     rating: 4,
     features: ['Air Conditioning ', 'Wifi', 'Pool', 'Kitchen'],
     price: 1200,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const hotels: HotelType[] = [
     rating: 4.8,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 980,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ export const hotels: HotelType[] = [
     rating: 4.8,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 1400,
-    link: { name: 'hotels.details' }
+    link: { name: '.details' }
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ export const hotels: HotelType[] = [
     rating: 4.5,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 680,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 6,
@@ -64,7 +64,7 @@ export const hotels: HotelType[] = [
     rating: 4.4,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 740,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 7,
@@ -73,7 +73,7 @@ export const hotels: HotelType[] = [
     rating: 4,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 570,
-    link: { name: 'hotels.details' }
+    link: { name: '.details' }
   },
   {
     id: 8,
@@ -82,7 +82,7 @@ export const hotels: HotelType[] = [
     rating: 3.8,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 896,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 9,
@@ -91,6 +91,6 @@ export const hotels: HotelType[] = [
     rating: 4,
     features: ['Air Conditioning ', 'Wifi', 'Kitchen', 'Pool'],
     price: 475,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   }
 ]

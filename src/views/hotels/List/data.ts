@@ -20,7 +20,7 @@ export const hotels: HotelType[] = [
     rating: 4.5,
     schemes: ['Free Cancellation till 7 Jan 2022', 'Free Breakfast'],
     sale: '30% Off',
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ export const hotels: HotelType[] = [
     price: 980,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 4.5,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const hotels: HotelType[] = [
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 4.5,
     schemes: ['Free Cancellation till 7 Jan 2022'],
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ export const hotels: HotelType[] = [
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 3.5,
     schemes: ['Free Cancellation till 7 Jan 2022', 'Free Breakfast'],
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ export const hotels: HotelType[] = [
     price: 645,
     features: ['Air Conditioning', 'Wifi', 'Kitchen', 'Pool'],
     rating: 4.5,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   }
 ]
 

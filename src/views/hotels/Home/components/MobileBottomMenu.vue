@@ -2,10 +2,10 @@
   <div class="navbar navbar-mobile">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <router-link :to="{ name: 'hotels.home' }" class="nav-link active">
+        <!-- <router-link :to="{ name: '' }" class="nav-link active">
           <BIconHouseDoor class="fa-fw" />
           <span class="mb-0 nav-text">Home</span>
-        </router-link>
+        </router-link> -->
       </li>
 
       <li class="nav-item">

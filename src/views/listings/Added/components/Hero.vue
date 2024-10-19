@@ -13,7 +13,7 @@
           <router-link :to="{ name: 'listings.add' }" class="btn btn-primary mb-5 me-2">
             Preview
           </router-link>
-          <router-link :to="{ name: 'hotels.home' }" class="btn btn-light mb-5">
+          <router-link :to="{ name: '' }" class="btn btn-light mb-5">
             Back to Homepage
           </router-link>
         </b-col>

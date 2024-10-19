@@ -129,25 +129,25 @@
               </li>
 
               <li>
-                <router-link :to="{ name: 'user.bookings' }" class="dropdown-item">
+                <router-link :to="{ name: '' }" class="dropdown-item">
                   <BIconBookmarkCheck class="fa-fw me-2" />
                   My Bookings
                 </router-link>
               </li>
               <li>
-                <router-link :to="{ name: 'user.wishlist' }" class="dropdown-item">
+                <router-link :to="{ name: '' }" class="dropdown-item">
                   <BIconHeart class="fa-fw me-2" />
                   My Wishlist
                 </router-link>
               </li>
               <li>
-                <router-link :to="{ name: 'user.settings' }" class="dropdown-item">
+                <router-link :to="{ name: '' }" class="dropdown-item">
                   <BIconGear class="fa-fw me-2" />
                   Settings
                 </router-link>
               </li>
               <li>
-                <router-link :to="{ name: 'pages.help.center' }" class="dropdown-item">
+                <router-link :to="{ name: '' }" class="dropdown-item">
                   <BIconInfoCircle class="fa-fw me-2" />
                   Help Center
                 </router-link>

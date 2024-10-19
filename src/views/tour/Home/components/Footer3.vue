@@ -4,7 +4,7 @@
       <div class="bg-light rounded-top p-4 pb-0">
         <b-row class="g-4 justify-content-between">
           <b-col md="5" lg="4">
-            <router-link :to="{ name: 'hotels.home' }" class="me-0">
+            <router-link :to="{ name: '' }" class="me-0">
               <img class="light-mode-item h-40px" :src="logo" alt="logo" />
               <img class="dark-mode-item h-40px" :src="logoLight" alt="logo" />
             </router-link>

@@ -18,7 +18,7 @@ const wishListCards: HotelType[] = [
     rating: 4.5,
     price: 980,
     image: hotel1,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Royal Beach Resort',
@@ -26,7 +26,7 @@ const wishListCards: HotelType[] = [
     rating: 4.5,
     price: 540,
     image: hotel2,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   }
 ]
 

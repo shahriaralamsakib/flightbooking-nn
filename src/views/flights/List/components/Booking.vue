@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <!-- <FlightListFilter :visible=true @updateFilters="handleUpdateFilters" /> -->
   <section class="pt-0">
@@ -386,16 +387,17 @@ import CustomFlatpicker from '@/components/CustomFlatpicker.vue'
 import bg01 from '@/assets/images/bg/01.jpg'
 import SelectFormInput from '@/components/SelectFormInput.vue'
 import { dictionaries, flightOffers } from '@/stores/flightStore'
-import { faRightLeft, faAngleDown, faPlane } from '@fortawesome/free-solid-svg-icons';
+import { faRightLeft } from '@fortawesome/free-solid-svg-icons';
+//, faAngleDown, faPlane
 import { BIconArrowRight, BIconCalendar, BIconGeoAlt, BIconSend } from 'bootstrap-icons-vue'
-import { ref, computed, onMounted, watch } from 'vue'
-import FlightListFilter from '@/views/flights/List/components/FlightListFilter.vue';
-import FlightCard from '@/views/flights/List/components/FlightCard.vue';
+import { ref, computed } from 'vue'
+// import FlightListFilter from '@/views/flights/List/components/FlightListFilter.vue';
+// import FlightCard from '@/views/flights/List/components/FlightCard.vue';
 import FlightCard3 from '@/views/flights/List/components/FlightCard3.vue';
-import FlightDetailModal from '@/views/flights/List/components/FlightDetailModal.vue';
+// import FlightDetailModal from '@/views/flights/List/components/FlightDetailModal.vue';
 import Pagination from '@/views/flights/List/components/Pagination.vue';
 import VueSlider from 'vue-3-slider-component';
-import { currency } from '@/helpers/constants';
+// import { currency } from '@/helpers/constants';
 import { defineEmits } from 'vue';
 
 const flightListSection = ref<HTMLElement | null>(null);
@@ -458,15 +460,21 @@ const selectedClass = ref('select-class');
 const selectedTravelers = ref('select-travelers');
 const departureDate = ref();
 const returnDate = ref();
+interface Filters {
+  originLocationCode?: string | null;
+  destinationLocationCode?: string | null;
+  departureDate?: string | null;
+  travelClass?: string | null;
+  adults?: number | null;
+  max?: number | null;
+  maxPrice?: number;  // New field
+  nonStop?: boolean;  // New field
+  includedAirlineCodes?: string[];  // New field
+}
+
 const filterData = ref<Filters | null>(null);
-  const formData = ref<FormData>({
-  originLocationCode: null,
-  destinationLocationCode: null,
-  departureDate: null,
-  travelClass: null,
-  adults: null,
-  max: null
-});
+
+
 
 // Filter variables
 const priceRange = ref([0,  61000]);  // Price range (min, max)
@@ -669,7 +677,7 @@ const findTicket = async () => {
     if (filterData.value.nonStop) {
       formData.nonStop = String(filterData.value.nonStop);  // Include max price
     }
-    if (filterData.value.includedAirlineCodes.length) {
+    if (filterData.value?.includedAirlineCodes && filterData.value.includedAirlineCodes.length > 0) {
       formData.includedAirlineCodes = filterData.value.includedAirlineCodes.join(',');  // Include selected airline codes
     }
   }

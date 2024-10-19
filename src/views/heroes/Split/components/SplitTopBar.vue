@@ -4,7 +4,7 @@
       <div class="navbar-collapse w-100 collapse" id="navbarCollapse2">
         <ul class="navbar-nav nav-active-line navbar-nav-scroll mx-auto">
           <li class="nav-item">
-            <router-link :to="{ name: 'hotels.home' }" class="nav-link">Hotels</router-link>
+            <!-- <router-link :to="{ name: '' }" class="nav-link">Hotels</router-link> -->
           </li>
 
           <li class="nav-item">

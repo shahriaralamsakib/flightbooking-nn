@@ -24,8 +24,8 @@
 
               <router-link
                 class="dropdown-item"
-                :class="{ active: currentRouteName === 'pages.help.center' }"
-                :to="{ name: 'pages.help.center' }"
+                :class="{ active: currentRouteName === '' }"
+                :to="{ name: '' }"
                 >Help center
               </router-link>
 

@@ -36,11 +36,11 @@ type DemoType = {
 }
 
 export const categories: CategoryType[] = [
-  {
-    label: 'Hotel',
-    icon: faHotel,
-    link: { name: 'hotels.home' }
-  },
+  // {
+  //   label: 'Hotel',
+  //   icon: faHotel,
+  //   link: { name: '' }
+  // },
   {
     label: 'Flight',
     icon: faPlane,
@@ -64,24 +64,24 @@ export const categories: CategoryType[] = [
 ]
 
 export const demoData: DemoType[] = [
-  {
-    image: demo1,
-    title: 'Hotel booking',
-    description: 'Best for hotel, listing and directory website',
-    link: { name: 'hotels.home' }
-  },
-  {
-    image: demo9,
-    title: 'Hotel chain',
-    description: 'Crafted for hotel chain with multiple locations/city',
-    link: { name: 'hotels.chain' }
-  },
-  {
-    image: demo12,
-    title: 'Resort Booking',
-    description: 'Suitable for Resort, Villa, Cabins & Cottages',
-    link: { name: 'hotels.resort' }
-  },
+  // {
+  //   image: demo1,
+  //   title: 'Hotel booking',
+  //   description: 'Best for hotel, listing and directory website',
+  //   link: { name: '' }
+  // },
+  // {
+  //   image: demo9,
+  //   title: 'Hotel chain',
+  //   description: 'Crafted for hotel chain with multiple locations/city',
+  //   link: { name: 'hotels.chain' }
+  // },
+  // {
+  //   image: demo12,
+  //   title: 'Resort Booking',
+  //   description: 'Suitable for Resort, Villa, Cabins & Cottages',
+  //   link: { name: 'hotels.resort' }
+  // },
   {
     image: demo13,
     title: 'Directory',

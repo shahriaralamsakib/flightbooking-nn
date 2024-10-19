@@ -37,13 +37,13 @@
                 </b-nav-item-dropdown>
 
                 <li class="nav-item">
-                  <router-link :to="{ name: 'user.bookings' }" class="nav-link small pb-2">
+                  <router-link :to="{ name: '' }" class="nav-link small pb-2">
                     <BIconBriefcase class="me-1" />
                     My Trip
                   </router-link>
                 </li>
                 <li class="nav-item">
-                  <router-link :to="{ name: 'pages.help.center' }" class="nav-link small pb-2">
+                  <router-link :to="{ name: '' }" class="nav-link small pb-2">
                     <BIconInfoCircle class="me-1" />
                     Help
                   </router-link>

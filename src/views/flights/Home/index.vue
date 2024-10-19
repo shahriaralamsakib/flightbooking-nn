@@ -37,14 +37,14 @@
 <script setup lang="ts">
 import NavBar5 from '@/views/flights/Home/components/NavBar5.vue'
 import Hero from '@/views/flights/Home/components/Hero.vue'
-import SpecialOffers from '@/views/flights/Home/components/SpecialOffers.vue'
+// import SpecialOffers from '@/views/flights/Home/components/SpecialOffers.vue'
 import PopularDestinations from '@/views/flights/Home/components/PopularDestinations.vue'
 import DestinationSteps from '@/views/flights/Home/components/DestinationSteps.vue'
 import ActionBox from '@/views/flights/Home/components/ActionBox.vue'
-import FaqSection from '@/views/flights/Home/components/FaqSection.vue'
+// import FaqSection from '@/views/flights/Home/components/FaqSection.vue'
 import Footer4 from '@/views/flights/Home/components/Footer4.vue'
 import BackToTop from '@/components/BackToTop.vue'
-import { ref } from 'vue'
+// import { ref } from 'vue'
 
-const showAlert = ref(true)
+// const showAlert = ref(true)
 </script>

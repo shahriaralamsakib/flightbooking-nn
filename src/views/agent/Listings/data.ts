@@ -58,34 +58,34 @@ export const hotelBookingList: HotelType[] = [
     address: '31J W Spark Street, California - 24578',
     image: room10,
     price: 1586,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Royal Beach Resort',
     address: 'Manhattan street, London - 24578',
     image: room5,
     price: 856,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Carina Beach Resort',
     address: '5855 W Century Blvd, Los Angeles - 90045',
     image: room4,
     price: 1025,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Courtyard by Marriott New York',
     address: 'Manhattan street, London - 24578',
     image: room6,
     price: 1125,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     name: 'Beverly Hills Marriott',
     address: '31J W Spark Street, California - 24578',
     image: room8,
     price: 1005,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   }
 ]

@@ -10,9 +10,9 @@
 
     <b-col lg="6" class="order-1">
       <div class="p-4 p-sm-7">
-        <router-link :to="{ name: 'hotels.home' }">
+        <!-- <router-link :to="{ name: '' }">
           <img class="h-50px mb-4" :src="logo" alt="logo" />
-        </router-link>
+        </router-link> -->
 
         <h1 class="mb-2 h3">Forgot password?</h1>
         <p class="mb-sm-0">Enter the email address associated with an account.</p>

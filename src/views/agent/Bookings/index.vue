@@ -276,10 +276,12 @@ import { BIconBookmarkHeart } from 'bootstrap-icons-vue'
 import AgentLayout from '@/layouts/AgentLayout.vue'
 import SelectFormInput from '@/components/SelectFormInput.vue'
 import { kebabToTitleCase } from '@/helpers/change-casting'
+import type { number } from 'yup'
 
 
 interface FlightDetails {
   id: string;
+  
   type: string;
   price: {
     total: number;
@@ -289,6 +291,7 @@ interface FlightDetails {
   lastTicketingDate: string;
   itineraries: Array<{
     segments: Array<{
+      number: number;
       departure: {
         iataCode: string;
         at: string;
@@ -326,7 +329,7 @@ const sortOptions = [
 ];
 
 // Method to update booking status and hit the API using fetch
-const updateStatus = (booking) => {
+const updateStatus = (booking: any) => {
   fetch(`https://flightbooking-backend.vercel.app/api/flights/users/${booking.id}/${booking.status}`, {
     method: 'PUT',
     headers: {

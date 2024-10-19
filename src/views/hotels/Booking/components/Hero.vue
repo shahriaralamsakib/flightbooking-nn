@@ -8,10 +8,10 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-dots mb-0">
                   <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'hotels.home' }">
+                    <!-- <router-link :to="{ name: '' }">
                       <BIconHouse class="me-1 mb-1" />
                       Home
-                    </router-link>
+                    </router-link> -->
                   </li>
                   <li class="breadcrumb-item">Hotel detail</li>
                   <li class="breadcrumb-item active">Booking</li>

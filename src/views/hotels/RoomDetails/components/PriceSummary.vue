@@ -43,8 +43,8 @@ import { currency } from '@/helpers/constants';
         </ul>
 
         <div class="d-grid gap-2">
-          <router-link :to="{ name: 'hotels.booking' }" class="btn btn-dark mb-0"
-            >Continue To Book</router-link
+          <!-- <router-link :to="{ name: 'hotels.booking' }" class="btn btn-dark mb-0"
+            >Continue To Book</router-link -->
           >
         </div>
       </b-card-body>

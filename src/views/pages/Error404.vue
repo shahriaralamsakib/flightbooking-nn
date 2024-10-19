@@ -8,7 +8,7 @@
             <h1 class="display-1 text-primary mb-0">404</h1>
             <h2>Oh no, something went wrong!</h2>
             <p class="mb-4">Either something went wrong or this page doesn't exist anymore.</p>
-            <router-link :to="{ name: 'hotels.home' }" class="btn btn-light mb-0"
+            <router-link :to="{ name: '' }" class="btn btn-light mb-0"
               >Take me to Homepage
             </router-link>
           </b-col>

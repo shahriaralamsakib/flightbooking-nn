@@ -3,7 +3,7 @@
     <b-container>
       <b-row class="g-4">
         <b-col lg="3">
-          <router-link :to="{ name: 'hotels.home' }">
+          <router-link :to="{ name: '' }">
             <img class="h-40px" :src="logoLight" alt="logo" />
           </router-link>
           <p class="my-3 text-body-secondary">

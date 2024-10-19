@@ -79,7 +79,7 @@
         </div>
 
         <b-card-title tag="h5" class="mb-1">
-          <router-link :to="{ name: 'hotels.details' }">{{ hotel.name }}</router-link>
+          <router-link :to="{ name: '' }">{{ hotel.name }}</router-link>
         </b-card-title>
         <small>
           <BIconGeoAlt class="me-1 mb-1" />

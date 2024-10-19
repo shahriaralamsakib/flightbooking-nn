@@ -282,7 +282,7 @@
                                 </div>
 
                                 <b-card-title tag="h5" class="mb-1">
-                                  <router-link :to="{ name: 'hotels.details' }"
+                                  <router-link :to="{ name: '' }"
                                     >Courtyard by Marriott New York
                                   </router-link>
                                 </b-card-title>
@@ -302,7 +302,7 @@
                                 <h6 class="mb-0 fw-light small mt-2">
                                   Room type: Standard room - Holiday selection
                                   <router-link
-                                    :to="{ name: 'hotels.details' }"
+                                    :to="{ name: '' }"
                                     class="btn btn-sm btn-link p-0 mb-0 text-decoration-underline ms-2"
                                   >
                                     Change room

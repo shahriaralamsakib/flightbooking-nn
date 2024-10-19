@@ -75,7 +75,7 @@ export const featuredHotelsData: FeaturedHotelType[] = [
     name: 'Baga Comfort',
     price: 455,
     ratings: 4.5,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     location: 'California',
@@ -83,7 +83,7 @@ export const featuredHotelsData: FeaturedHotelType[] = [
     name: 'New Apollo Hotel',
     price: 585,
     ratings: 4.8,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     location: 'Los Angeles',
@@ -91,7 +91,7 @@ export const featuredHotelsData: FeaturedHotelType[] = [
     name: 'New Age Hotel',
     price: 385,
     ratings: 4.6,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   },
   {
     location: 'Chicago',
@@ -99,7 +99,7 @@ export const featuredHotelsData: FeaturedHotelType[] = [
     name: 'Helios Beach Resort',
     price: 665,
     ratings: 4.8,
-    link: { name: 'hotels.details' }
+    link: { name: '' }
   }
 ]
 
