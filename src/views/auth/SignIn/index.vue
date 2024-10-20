@@ -125,6 +125,97 @@ const redirectUser = () => {
 
 const handleSignIn = async () => {
   let user = {}
+  
+  // Validate form input
+  await loginFormSchema
+    .validate(formCredentials)
+    .then((res) => (user = res))
+    .catch((e) => {
+      return (error.value = e.message)
+    })
+
+  // Compare formCredentials with predefined static credentials
+  if (
+    formCredentials.email !== credentials.email || 
+    formCredentials.password !== credentials.password
+  ) {
+    // If credentials do not match, display error and prevent further actions
+    return error.value = 'Invalid email or password. Please try again with correct credentials.'
+  }
+
+  try {
+    // If the credentials match, simulate the API call (or continue with actual flow)
+    const res: AxiosResponse<UserType> = await HttpClient.post('/login', user)
+
+    if (res.data.token) {
+      useAuth.saveSession({
+        ...res.data,
+        token: res.data.token
+      })
+      redirectUser()
+    }
+  } catch (e: any) {
+    if (e.response?.data?.error) {
+      if (error.value.length == 0) error.value = e.response?.data?.error
+    }
+  }
+}
+</script>
+
+
+<!-- <script setup lang="ts">
+import AuthLayout from '@/layouts/AuthLayout.vue'
+
+import signin from '@/assets/images/element/signin.svg'
+import logo from '@/assets/images/logo-icon.svg'
+
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import PasswordInput from '@/components/PasswordInput.vue'
+import { reactive, ref } from 'vue'
+import { useAuthStore } from '@/stores/auth'
+import * as yup from 'yup'
+import router from '@/router'
+import { useRoute } from 'vue-router'
+import HttpClient from '@/helpers/http-client'
+import type { AxiosResponse } from 'axios'
+import type { UserType } from '@/types/auth'
+import { currentYear, developedBy, developedByLink } from '@/helpers/constants'
+
+import { onMounted } from 'vue'
+
+const credentials = reactive({
+  id: '1',
+  email: 'user@email.com',
+  password: 'password'
+})
+
+const formCredentials = reactive({
+  email: '',
+  password: ''
+});
+
+const useAuth = useAuthStore()
+const route = useRoute()
+const query = route.query
+
+const error = ref('')
+
+const loginFormSchema = yup.object({
+  email: yup.string().email('Please enter a valid email').required('Please enter your email'),
+  password: yup.string().required('Please enter your password')
+})
+
+const redirectUser = () => {
+  if (query.redirectedFrom) {
+    return router.push(`${query.redirectedFrom}`)
+  }
+  return router.push('/agent/bookings')
+}
+
+const handleSignIn = async () => {
+  let user = {}
   await loginFormSchema
     .validate(credentials)
     .then((res) => (user = res))
@@ -148,4 +239,4 @@ const handleSignIn = async () => {
     }
   }
 }
-</script>
+</script> -->

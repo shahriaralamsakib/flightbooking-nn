@@ -137,8 +137,8 @@
                   </b-col>
 
                   <b-col cols="12" class="text-end pt-0">
-                    <a class="btn btn-primary mb-n4" href="#"
-                      >Find ticket
+                    <a class="btn btn-primary mb-n4" href="#" @click.prevent="handleFindTicket">
+                      Find ticket
                       <BIconArrowRight class="ps-3 w-25" />
                     </a>
                   </b-col>
@@ -220,8 +220,8 @@
                   </b-col>
 
                   <b-col cols="12" class="text-end pt-0">
-                    <a class="btn btn-primary mb-n4" href="#"
-                      >Find ticket
+                    <a class="btn btn-primary mb-n4" href="#" @click.prevent="handleFindTicket">
+                      Find ticket
                       <BIconArrowRight class="ps-3 w-25" />
                     </a>
                   </b-col>
@@ -236,6 +236,127 @@
 </template>
 
 <script lang="ts" setup>
+import bg01 from '@/assets/images/bg/01.jpg'
+import SelectFormInput from '@/components/SelectFormInput.vue'
+import { faRightLeft } from '@fortawesome/free-solid-svg-icons'
+import { BIconGeoAlt, BIconSend, BIconCalendar, BIconArrowRight } from 'bootstrap-icons-vue'
+
+import { ref } from 'vue'
+import CustomFlatpicker from '@/components/CustomFlatpicker.vue'
+import { useRouter } from 'vue-router'; // Import the router
+
+const router = useRouter();
+
+const selectedDestination = ref('select-location')
+const selectedDestination2 = ref('select-location')
+const selectedDestination3 = ref('select-location')
+const selectedDestination4 = ref('select-location')
+const selectedClass = ref('select-class')
+const selectedTravelers = ref('select-travelers')
+
+const destinationOptions = [
+{ value: 'select-class', text: 'Select Location' },
+{ value: 'DAC', text: 'Dhaka, Bangladesh' },
+{ value: 'SYD', text: 'Sydney, Australia' },
+{ value: 'BKK', text: 'Bangkok, Thailand' },
+{ value: 'NYC', text: 'New York City, USA' },
+{ value: 'LON', text: 'London, United Kingdom' },
+{ value: 'PAR', text: 'Paris, France' },
+{ value: 'TYO', text: 'Tokyo, Japan' },
+{ value: 'SIN', text: 'Singapore, Singapore' },
+{ value: 'DXB', text: 'Dubai, UAE' },
+{ value: 'LAX', text: 'Los Angeles, USA' },
+{ value: 'BER', text: 'Berlin, Germany' },
+{ value: 'ROM', text: 'Rome, Italy' },
+{ value: 'TOR', text: 'Toronto, Canada' },
+{ value: 'AMS', text: 'Amsterdam, Netherlands' },
+{ value: 'HKG', text: 'Hong Kong, China' },
+{ value: 'IST', text: 'Istanbul, Turkey' },
+{ value: 'MOW', text: 'Moscow, Russia' },
+{ value: 'MEX', text: 'Mexico City, Mexico' },
+{ value: 'BCN', text: 'Barcelona, Spain' },
+{ value: 'SFO', text: 'San Francisco, USA' },
+{ value: 'MUC', text: 'Munich, Germany' },
+{ value: 'JNB', text: 'Johannesburg, South Africa' },
+{ value: 'BOM', text: 'Mumbai, India' },
+{ value: 'BUE', text: 'Buenos Aires, Argentina' },
+{ value: 'GRU', text: 'São Paulo, Brazil' },
+{ value: 'LIS', text: 'Lisbon, Portugal' },
+{ value: 'FCO', text: 'Rome, Italy' },
+{ value: 'CAI', text: 'Cairo, Egypt' },
+{ value: 'KUL', text: 'Kuala Lumpur, Malaysia' },
+{ value: 'ZRH', text: 'Zurich, Switzerland' },
+{ value: 'BOS', text: 'Boston, USA' },
+{ value: 'MNL', text: 'Manila, Philippines' },
+{ value: 'VIE', text: 'Vienna, Austria' },
+{ value: 'ICN', text: 'Seoul, South Korea' },
+{ value: 'ATH', text: 'Athens, Greece' },
+{ value: 'CPT', text: 'Cape Town, South Africa' },
+{ value: 'SHA', text: 'Shanghai, China' },
+{ value: 'YVR', text: 'Vancouver, Canada' },
+{ value: 'OSL', text: 'Oslo, Norway' },
+{ value: 'DEL', text: 'Delhi, India' },
+{ value: 'DUB', text: 'Dublin, Ireland' },
+{ value: 'MEL', text: 'Melbourne, Australia' },
+{ value: 'MAD', text: 'Madrid, Spain' },
+{ value: 'CPH', text: 'Copenhagen, Denmark' },
+{ value: 'SVO', text: 'Moscow, Russia' },
+{ value: 'HEL', text: 'Helsinki, Finland' },
+{ value: 'ARN', text: 'Stockholm, Sweden' },
+{ value: 'DOH', text: 'Doha, Qatar' },
+{ value: 'BNE', text: 'Brisbane, Australia' },
+{ value: 'PRG', text: 'Prague, Czech Republic' }
+
+]
+
+const classOptions = [
+  { value: 'select-class', text: 'Select Class' },
+  { value: 'ECONOMY', text: 'Economy' },
+  { value: 'PREMIUM_ECONOMY', text: 'Premium Economy' },
+  { value: 'BUSINESS', text: 'Business' },
+  { value: 'FIRST', text: 'First Class' }
+]
+
+const travelerOptions = [
+  { value: 'select-travelers', text: 'Select Travelers' },
+  { value: '1', text: '1' },
+  { value: '2', text: '2' },
+  { value: '3', text: '3' },
+  { value: '4', text: '4' }
+]
+
+const show = ref(true) // toggle for one-way or round-trip
+const departureDate = ref()
+const returnDate = ref()
+
+// Date formatting function
+const formatDate = (date: any) => {
+  if (!date) return null;
+  const d = new Date(date);
+  return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
+};
+
+// Function to handle the click event
+const handleFindTicket = () => {
+  const queryParams = {
+  originLocationCode: show.value ? selectedDestination.value : selectedDestination3.value,
+  destinationLocationCode: show.value ? selectedDestination2.value : selectedDestination4.value,
+  departureDate: formatDate(departureDate.value),
+  returnDate: !show.value && returnDate.value ? formatDate(returnDate.value) : null,
+  travelClass: selectedClass.value,
+  adults: selectedTravelers.value,
+};
+  console.log('Form Data:', queryParams);
+router.push({ name: 'flights.list', query: queryParams });
+
+  if (!show.value && returnDate.value) {
+    queryParams.returnDate = formatDate(returnDate.value);
+  }
+};
+</script>
+
+
+<!-- <script lang="ts" setup>
 import bg01 from '@/assets/images/bg/01.jpg'
 import SelectFormInput from '@/components/SelectFormInput.vue'
 import { faRightLeft } from '@fortawesome/free-solid-svg-icons'
@@ -275,4 +396,4 @@ const travelerOptions = [
 const show = ref(true)
 const departureDate = ref()
 const returnDate = ref()
-</script>
+</script> -->
