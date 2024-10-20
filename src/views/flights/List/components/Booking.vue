@@ -651,6 +651,7 @@ const findTicket = async (incomingData?: FormData) => {
   const queryString = toQueryString(formData);
   const apiEndpoint = 'https://test.api.amadeus.com/v2/shopping/flight-offers';
   const fullUrl = `${apiEndpoint}?${queryString}`;
+  console.log(fullUrl);
 
   try {
     const response = await fetch(fullUrl, {
@@ -766,6 +767,7 @@ onMounted(() => {
     originLocationCode,
     destinationLocationCode,
     departureDate,
+    returnDate, // Include optional returnDate
     travelClass,
     adults,
   } = route.query;
@@ -779,6 +781,7 @@ onMounted(() => {
   const origin = getQueryParam(originLocationCode);
   const destination = getQueryParam(destinationLocationCode);
   const departure = getQueryParam(departureDate);
+  const returnDateVal = getQueryParam(returnDate); // Handle returnDate
   const travelClassVal = getQueryParam(travelClass);
   const adultsCount = getQueryParam(adults);
 
@@ -795,16 +798,30 @@ onMounted(() => {
       originLocationCode: origin,
       destinationLocationCode: destination,
       departureDate: departure,
+      returnDate: returnDateVal || null, // Include returnDate only if it exists, otherwise set to null
       travelClass: travelClassVal,
       adults: adultsCount,
     };
 
-    console.log(formData); // Check the formData object
+    // Check if it's a round trip or one-way trip
+    if (formData.returnDate) {
+      // It's a round trip
+      selectedDestination3.value = formData.originLocationCode;  // Set origin for round trip
+      selectedDestination4.value = formData.destinationLocationCode;  // Set destination for round trip
+    } else {
+      // It's a one-way trip
+      selectedDestination.value = formData.originLocationCode;  // Set origin for one-way trip
+      selectedDestination2.value = formData.destinationLocationCode;  // Set destination for one-way trip
+    }
+
+    console.log('formData from booking', formData); // Check the formData object
     findTicket(formData); // Call findTicket with the formData
   } else {
     console.log("Required parameters are missing");
   }
 });
+
+
 
 
 
