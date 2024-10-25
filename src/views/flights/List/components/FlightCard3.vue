@@ -81,8 +81,8 @@
   <b-row class="g-4">
     <!-- Departure Information -->
     <b-col sm="4" md="3">
-      <h4>{{ itinerary.segments[0].departure.iataCode }}</h4>
-      <h4>{{ formatTime(itinerary.segments[0].departure.at) }}</h4>
+      <h5 style="font-weight: 50;">{{ getCityName(itinerary.segments[0].departure.iataCode) }}({{ itinerary.segments[0].departure.iataCode }})</h5>
+      <h5 style="font-weight: 50;">{{ formatTime(itinerary.segments[0].departure.at) }}</h5>
       <p class="mb-0">
         {{ itinerary.segments[0].departure.iataCode }} - Terminal
         {{ itinerary.segments[0].departure.terminal || 'N/A' }}<span><br></span>
@@ -93,7 +93,7 @@
 
     <!-- Duration and Flight Icon -->
     <b-col sm="4" md="3" class="my-sm-auto text-center">
-      <h5>{{ formatDuration(itinerary.duration) }}</h5>
+      <h5 style="font-weight: 50;">{{ formatDuration(itinerary.duration) }}</h5>
       <div class="position-relative my-4">
         <hr class="bg-primary opacity-5 position-relative" />
         <div class="icon-md bg-primary text-white rounded-circle position-absolute top-50 start-50 translate-middle">
@@ -104,8 +104,8 @@
 
     <!-- Arrival Information -->
     <b-col sm="4" md="3">
-      <h4>{{ itinerary.segments[itinerary.segments.length - 1].arrival.iataCode }}</h4>
-      <h4>{{ formatTime(lastArrival.at) }}</h4>
+      <h5 style="font-weight: 50;">{{ getCityName(lastArrival.iataCode) }}({{ itinerary.segments[itinerary.segments.length - 1].arrival.iataCode }})</h5>
+      <h5 style="font-weight: 50;">{{ formatTime(lastArrival.at) }}</h5>
       <p class="mb-0">
         {{ lastArrival.iataCode }} - Terminal
         {{ lastArrival.terminal || 'N/A' }} <span><br></span>
@@ -118,7 +118,8 @@
     <b-col md="3" class="text-md-end">
       <!-- Only show price and book button for the first itinerary card -->
       <template v-if="index === 0">
-        <h4>{{ currency }} {{ offer.price.total }}</h4>
+        <!-- <h4>$ {{ convertEuroToUSD(offer.price.total)}} = {{ offer.price.total }}</h4> -->
+        <h4 style="font-weight: 50;">{{ currency }} {{ offer.price.total }}</h4>
         <router-link
           :to="{ name: 'flights.details', query: { offer: JSON.stringify(offer), dictionaries: JSON.stringify(dictionaries) } }"
           class="btn btn-dark mb-0 mb-sm-2"
@@ -130,13 +131,13 @@
   </b-row>
 
   <!-- Divider between itineraries -->
-  <h3 
+  <h4 
   v-if="index < offer.itineraries.length - 1" 
   class="my-4 text-center py-2" 
-  style="background-color: #f8f9fa; color: #333; border-radius: 4px;"
+  style="background-color: rgba(81, 67, 217, 0.2); color: #333; border-radius: 4px; font-weight: 50;"
 >
   Return Flight
-</h3>
+</h4>
 
 </b-card-body>
 
@@ -210,7 +211,7 @@
   <b-card no-body class="border">
     <b-card-body class="p-4">
       <!-- Outbound Flight Details -->
-      <b-row class="g-4">
+      <b-row class="g-4 text-center">
         <!-- Outbound Flight Heading -->
         <b-col cols="12" class="bg-light text-center py-2 mb-3">
           <h5 class="mb-0">Outbound Flight</h5>
@@ -220,13 +221,14 @@
         <b-col v-for="(segment, index) in offer.itineraries[0].segments" :key="'outbound-' + index" sm="12">
           <b-row class="g-4">
             <b-col sm="4">
-              <h4>{{ segment.departure.iataCode }}</h4>
-              <h6 class="mb-0">{{ formatTime(segment.departure.at) }}</h6>
-              <p class="mb-0">{{ getLocationDetails(segment.departure.iataCode) }}</p>
+              <h5 style="font-weight: 50;">{{ getCityName(segment.departure.iataCode) }}({{ segment.departure.iataCode }})</h5>
+              <h6 class="mb-0" style="font-weight: 50;">{{ formatTime(segment.departure.at) }}</h6>
+              <p class="mb-0">{{ getCityName(segment.departure.iataCode) }}</p>
+              <p class="mb-0">{{ getCountryName(segment.departure.iataCode) }}</p>
             </b-col>
 
             <b-col sm="4" class="my-sm-auto text-center">
-              <h5>{{ formatDuration(segment.duration) }}</h5>
+              <h5 style="font-weight: 50;">{{ formatDuration(segment.duration) }}</h5>
               <div class="position-relative my-4">
                 <hr class="bg-primary opacity-5 position-relative" />
                 <div class="icon-md bg-primary text-white rounded-circle position-absolute top-50 start-50 translate-middle">
@@ -236,9 +238,10 @@
             </b-col>
 
             <b-col sm="4">
-              <h4>{{ segment.arrival.iataCode }}</h4>
-              <h6 class="mb-0">{{ formatTime(segment.arrival.at) }}</h6>
-              <p class="mb-0">{{ getLocationDetails(segment.arrival.iataCode) }}</p>
+              <h5 style="font-weight: 50;">{{ getCityName(segment.arrival.iataCode) }}({{ segment.arrival.iataCode }})</h5>
+              <h6 class="mb-0" style="font-weight: 50;">{{ formatTime(segment.arrival.at) }}</h6>
+              <p class="mb-0">{{ getCityName(segment.arrival.iataCode) }}</p>
+              <p class="mb-0">{{ getCountryName(segment.arrival.iataCode) }}</p>
             </b-col>
           </b-row>
 
@@ -261,11 +264,12 @@
 
         <!-- Loop through each return segment -->
         <b-col v-for="(segment, index) in offer.itineraries[1]?.segments" :key="'return-' + index" sm="12">
-          <b-row class="g-4">
+          <b-row class="g-4 text-center">
             <b-col sm="4">
-              <h4>{{ segment.departure.iataCode }}</h4>
-              <h6 class="mb-0">{{ formatTime(segment.departure.at) }}</h6>
-              <p class="mb-0">{{ getLocationDetails(segment.departure.iataCode) }}</p>
+              <h5 style="font-weight: 50;">{{ getCityName(segment.departure.iataCode) }}({{ segment.departure.iataCode }})</h5>
+              <h6 class="mb-0" style="font-weight: 50;">{{ formatTime(segment.departure.at) }}</h6>
+              <p class="mb-0">{{ getCityName(segment.departure.iataCode) }}</p>
+              <p class="mb-0">{{ getCountryName(segment.departure.iataCode) }}</p>
             </b-col>
 
             <b-col sm="4" class="my-sm-auto text-center">
@@ -279,9 +283,10 @@
             </b-col>
 
             <b-col sm="4">
-              <h4>{{ segment.arrival.iataCode }}</h4>
-              <h6 class="mb-0">{{ formatTime(segment.arrival.at) }}</h6>
-              <p class="mb-0">{{ getLocationDetails(segment.arrival.iataCode) }}</p>
+              <h5 style="font-weight: 50;">{{ getCityName(segment.arrival.iataCode) }}({{ segment.arrival.iataCode }})</h5>
+              <h6 class="mb-0" style="font-weight: 50;">{{ formatTime(segment.arrival.at) }}</h6>
+              <p class="mb-0">{{ getCityName(segment.arrival.iataCode) }}</p>
+              <p class="mb-0">{{ getCountryName(segment.arrival.iataCode) }}</p>
             </b-col>
           </b-row>
 
@@ -529,6 +534,7 @@ const formatDuration = (duration: string) => {
   const minutes = duration.match(/(\d+)M/);
   return `${hours ? hours[1] + 'hr' : ''} ${minutes ? minutes[1] + 'min' : ''}`;
 };
+
 
 // Calculate layover time between flights
 const calculateLayover = (arrivalTime: string, departureTime: string) => {
